@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t dockergrove/docker-react -f Dockerfile
+
+script:
+  - docker run dockergrove/docker-react npm run test -- --coverage
